@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { getUserList } from "../helper/userHelper";
-import { Link, BrowserRouter as Router } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Base from "./Base";
 
 const UserList = () => {
@@ -37,8 +37,9 @@ const UserList = () => {
             <div className="alert alert-secondary p-4 h3 font-weight-normal">
               Select an account
             </div>
-            <Router>
-              {userList !== null && userList.map((user, index) => {
+
+            {userList !== null &&
+              userList.map((user, index) => {
                 return (
                   <div
                     key={index}
@@ -61,14 +62,17 @@ const UserList = () => {
                   </div>
                 );
               })}
-            </Router>
           </div>
         </div>
       </div>
     );
   };
 
-  return <Base className="col-6 offset-3" title="Users list">{displayUserList()}</Base>;
+  return (
+    <Base className="col-6 offset-3" title="Users list">
+      {displayUserList()}
+    </Base>
+  );
 };
 
 export default UserList;

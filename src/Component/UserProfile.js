@@ -30,7 +30,7 @@ const UserProfile = ({ match }) => {
         {/* LEFT MENU */}
         <div
           className="col-2 float-left rounded-lg"
-          style={{ minHeight: "800px", background: "#3C40C6" }}
+          style={{ minHeight: "100vh", background: "#3C40C6" }}
         >
           <ul className="w-75 list-unstyled text-white h4 font-weight-normal text-left pl-3 pt-5">
             <li className="border-bottom text-white">Profile</li>

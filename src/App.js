@@ -3,7 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import UserList from "./Component/UserList";
 import UserProfile from "./Component/UserProfile";
-import { Route, Switch, BrowserRouter as Router } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 
 function App() {
   return (
@@ -16,4 +16,4 @@ function App() {
   );
 }
 
-export default App;
+export default withRouter(App);
