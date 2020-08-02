@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Fragment } from "react";
 import { getUserList } from "../helper/userHelper";
 import { Link } from "react-router-dom";
 import Base from "./Base";
@@ -32,36 +32,45 @@ const UserList = () => {
     // console.log(userList);
     return (
       <div className="row rounded-pill">
-        <div className=" col-lg-10 offset-sm-1 py-5">
+        <div className=" col-lg-10 offset-sm-1 mt-5 py-5">
           <div className="col-lg-12 align-items-center">
-            <div className="alert alert-secondary p-4 h3 font-weight-normal">
-              Select an account
+            <div className="col-12 pb-5 pl-0 ml-0 pr-0 mr-0 rcorners2 bg-light">
+              <div className="p-5 h3 font-weight-normal text-muted">
+                Select an account
+              </div>
+              <div
+                className="bg-white col-12 pl-0 ml-0"
+                style={{ overflowY: "scroll", maxHeight: "430px" }}
+              >
+                {userList !== null &&
+                  userList.map((user, index) => {
+                    return (
+                      <Fragment>
+                       
+                        <div
+                          key={index}
+                          className="col-10 pb-5 pt-4 border-bottom"
+                          style={{ marginTop: "-15px", marginLeft:"80px" }}
+                        >
+                          <Link to={`/profile/${user.id}`}>
+                            <span className="col-2 pl-0 float-left">
+                              <img
+                                className="rounded-circle"
+                                src={user.profilepicture}
+                                height="38px"
+                                width="38px"
+                              />
+                            </span>
+                            <span className="col-10 float-left pl-0 pb-3 text-left text-secondary h4 font-weight-normal">
+                              {user.name}
+                            </span>
+                          </Link>
+                        </div>
+                      </Fragment>
+                    );
+                  })}
+              </div>
             </div>
-
-            {userList !== null &&
-              userList.map((user, index) => {
-                return (
-                  <div
-                    key={index}
-                    className="col-12 pb-5 pt-4 border-bottom"
-                    style={{ marginTop: "-15px" }}
-                  >
-                    <Link to={`/profile/${user.id}`}>
-                      <span className="col-2 float-left">
-                        <img
-                          className="rounded-circle"
-                          src={user.profilepicture}
-                          height="38px"
-                          width="38px"
-                        />
-                      </span>
-                      <span className="col-10 float-left pb-3 text-left text-secondary h4 font-weight-normal">
-                        {user.name}
-                      </span>
-                    </Link>
-                  </div>
-                );
-              })}
           </div>
         </div>
       </div>
