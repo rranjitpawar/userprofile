@@ -110,7 +110,7 @@ const UserProfile = ({ match }) => {
             </div>
             {/* COMPANY DETAILS */}
             <div className="col-12 float-left ">
-              <div className="col-4 h4 pt-3 border-top font-weight-normal text-muted">
+              <div className="col-9 offset-1 h4 pt-3 border-top font-weight-normal text-muted">
                 Company
               </div>
               <div className="pl-0 ml-0 col-3">
